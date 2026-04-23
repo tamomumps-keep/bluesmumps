@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Report | B.mumps</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            gold: '#D4A843',
+            cream: '#FEFDF8',
+            parchment: '#F5F0E8',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cream text-[#1C1C1C] font-sans min-h-screen flex flex-col">
+  <header class="w-full bg-white/90 border-b border-gold/30 shadow-sm">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="../index.html" class="font-serif text-xl font-bold tracking-wider text-[#1C1C1C] hover:text-gold transition">
+        ← B.mumps
+      </a>
+      <span class="font-serif italic text-gold text-lg">Live Report</span>
+    </nav>
+  </header>
+  <main class="flex-1 flex items-center justify-center px-6 py-20">
+    <div class="text-center max-w-lg">
+      <p class="text-gold font-semibold tracking-widest text-sm uppercase mb-6">Coming Soon</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-[#1C1C1C] mb-6 leading-tight">
+        <span class="text-gold">——</span> LIVE REPORT <span class="text-gold">——</span>
+      </h1>
+      <p class="text-gray-600 text-lg leading-relaxed mb-2">近日中にライブレポートを公開します。</p>
+      <p class="text-gray-400 text-base mb-10">それまでしばらくお待ちください。</p>
+      <a href="../index.html"
+        class="inline-block border-2 border-gold text-gold px-8 py-3 tracking-wider hover:bg-gold hover:text-white transition font-semibold text-sm">
+        ← トップページへ戻る
+      </a>
+    </div>
+  </main>
+  <footer class="border-t border-gold/20 bg-parchment py-6 text-center text-sm text-gray-400">
+    &copy; 2026 B.mumps All Rights Reserved.
+  </footer>
+</body>
+</html>

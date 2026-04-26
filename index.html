@@ -307,6 +307,19 @@
     </div>
   </section>
 
+  <!-- Live Info Popup -->
+  <div id="livePopup" class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/75 px-4">
+    <div class="relative bg-[#1A1A1A] border border-[#D4A843]/50 rounded-xl w-full max-w-sm p-6 shadow-2xl">
+      <button onclick="closeLivePopup()" class="absolute top-3 right-4 text-gray-400 hover:text-[#D4A843] text-xl transition">✕</button>
+      <h3 class="font-serif text-[#D4A843] text-xl text-center mb-1">🎸🎸🎸 最新ライブ 🎸🎸🎸</h3>
+      <p class="text-gray-400 text-xs text-center mb-5">ぜひライブに遊びに来てください！</p>
+      <div id="popupLiveList" class="space-y-3 mb-6"></div>
+      <div class="text-center">
+        <a href="#live" onclick="closeLivePopup()" class="inline-block bg-[#D4A843] text-[#0F0F0F] px-7 py-2 rounded font-bold hover:opacity-85 transition text-sm tracking-wide">ライブ詳細を見る →</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-black py-6 text-center text-sm text-gray-500 border-t border-gold/10">
     &copy; 2026 B.mumps All Rights Reserved.
@@ -335,6 +348,55 @@
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
+
+    // Live Popup
+    function closeLivePopup() {
+      const popup = document.getElementById('livePopup');
+      popup.classList.add('hidden');
+      popup.classList.remove('flex');
+      sessionStorage.setItem('livePopupShown', '1');
+    }
+
+    (function() {
+      if (sessionStorage.getItem('livePopupShown')) return;
+      const liveSection = document.getElementById('live');
+      if (!liveSection) return;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const dateEls = liveSection.querySelectorAll('p.text-gold.font-bold');
+      if (dateEls.length === 0) return;
+
+      // 今日以降で最も近い1件を探す
+      let target = null;
+      dateEls.forEach(function(dateEl) {
+        const parts = dateEl.textContent.trim().split('.');
+        if (parts.length < 3) return;
+        const d = new Date(parts[0], parts[1] - 1, parts[2]);
+        if (d >= today && (!target || d < target.date)) {
+          target = { date: d, el: dateEl };
+        }
+      });
+      if (!target) return;
+
+      const card = target.el.closest('div');
+      const venueEl = card ? card.querySelector('a, .text-white.font-semibold') : null;
+      const statusEl = card ? card.querySelector('.text-green-400, .text-red-400') : null;
+      const timeEl = card ? card.querySelector('.text-gray-400.text-sm') : null;
+      const statusColor = statusEl && statusEl.classList.contains('text-red-400') ? '#ef4444' : '#4ade80';
+      const statusText = statusEl ? statusEl.textContent.trim() : '';
+      let html = '<div style="text-align:center;padding:8px 0;">';
+      html += '<p style="color:#D4A843;font-weight:bold;font-size:26px;letter-spacing:0.05em;">' + target.el.textContent.trim() + '</p>';
+      if (venueEl) html += '<p style="color:#f5f5f5;font-size:22px;font-weight:bold;margin:6px 0;">' + venueEl.textContent.trim() + '</p>';
+      if (timeEl) html += '<p style="color:#9ca3af;font-size:13px;margin-top:6px;">' + timeEl.textContent.trim() + '</p>';
+      if (statusText) html += '<span style="font-size:12px;font-weight:bold;color:' + statusColor + ';">● ' + statusText + '</span>';
+      html += '</div>';
+      document.getElementById('popupLiveList').innerHTML = html;
+      setTimeout(function() {
+        const popup = document.getElementById('livePopup');
+        popup.classList.remove('hidden');
+        popup.classList.add('flex');
+      }, 800);
+    })();
   </script>
 </body>
 </html>

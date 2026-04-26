@@ -385,7 +385,7 @@
       const statusColor = statusEl && statusEl.classList.contains('text-red-400') ? '#ef4444' : '#4ade80';
       const statusText = statusEl ? statusEl.textContent.trim() : '';
       let html = '<div style="text-align:center;padding:8px 0;">';
-      html += '<p style="color:#D4A843;font-weight:bold;font-size:26px;letter-spacing:0.05em;">' + target.el.textContent.trim() + '</p>';
+      html += '<p style="color:#f5f5f5;font-weight:bold;font-size:26px;letter-spacing:0.05em;">' + target.el.textContent.trim() + '</p>';
       if (venueEl) html += '<p style="color:#f5f5f5;font-size:22px;font-weight:bold;margin:6px 0;">' + venueEl.textContent.trim() + '</p>';
       if (timeEl) html += '<p style="color:#9ca3af;font-size:13px;margin-top:6px;">' + timeEl.textContent.trim() + '</p>';
       if (statusText) html += '<span style="font-size:12px;font-weight:bold;color:' + statusColor + ';">● ' + statusText + '</span>';

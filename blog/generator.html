@@ -192,8 +192,8 @@
       if (galleryPhotos.length > 0) {
         galleryHtml = `\n    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">\n` +
           galleryPhotos.map(p =>
-            `      <div class="overflow-hidden rounded-lg aspect-square">\n` +
-            `        <img src="../images/${esc(p)}" alt="ライブ写真" class="w-full h-full object-cover hover:scale-105 transition duration-300">\n` +
+            `      <div class="overflow-hidden rounded-lg">\n` +
+            `        <img src="../images/${esc(p)}" alt="ライブ写真" class="w-full object-contain hover:scale-105 transition duration-300">\n` +
             `      </div>`
           ).join('\n') + `\n    </div>`;
       }

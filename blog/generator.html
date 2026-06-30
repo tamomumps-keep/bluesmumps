@@ -70,16 +70,18 @@
         </div>
 
         <div>
-          <label class="block text-sm font-semibold text-gray-600 mb-1">メイン写真のファイル名（拡張子まで） <span class="text-red-400">*</span></label>
-          <input type="text" id="main-photo" placeholder="例：20260614_01.jpg" class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
+          <label class="block text-sm font-semibold text-gray-600 mb-1">メイン写真のファイル名 <span class="text-red-400">*</span></label>
+          <input type="text" id="main-photo" placeholder="例：20260614_01.jpg　← .jpg や .jpeg まで入力" class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
+          <p class="text-xs font-semibold text-red-400 mt-1">⚠️ .jpg / .jpeg など拡張子まで必ず入力してください</p>
         </div>
 
         <div>
-          <label class="block text-sm font-semibold text-gray-600 mb-2">ギャラリー写真（任意・最大6枚）</label>
+          <label class="block text-sm font-semibold text-gray-600 mb-1">ギャラリー写真（任意・最大6枚）</label>
+          <p class="text-xs font-semibold text-red-400 mb-2">⚠️ .jpg / .jpeg など拡張子まで必ず入力してください</p>
           <div class="space-y-2" id="gallery-inputs">
-            <input type="text" placeholder="写真2のファイル名（例：20260614_02.jpg）" class="gallery-photo w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
-            <input type="text" placeholder="写真3のファイル名" class="gallery-photo w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
-            <input type="text" placeholder="写真4のファイル名" class="gallery-photo w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
+            <input type="text" placeholder="例：20260614_02.jpg" class="gallery-photo w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
+            <input type="text" placeholder="例：20260614_03.jpg" class="gallery-photo w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
+            <input type="text" placeholder="例：20260614_04.jpg" class="gallery-photo w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gold">
           </div>
           <button onclick="addPhotoField()" class="mt-2 text-gold text-sm hover:underline">＋ 写真を追加</button>
         </div>
